@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block titre%} Recherche {% endblock %}
+
+{% block body %}
+    {% if articles %}
+        <ul>
+            {% for article in articles %}
+            <li>
+                <a href="{{ url_for('page_article', identifiant=article['identifiant']) }}">
+                    {{ article["titre"] }}
+                </a>
+                <p>Publié le {{ article["date_publication"] }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun article trouvé pour "{{ recherche }}".</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('page_acceuil') }}">Retour à l'accueil</a>
+{% endblock %}

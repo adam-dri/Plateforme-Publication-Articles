@@ -1,0 +1,450 @@
+:root {
+  --primary-color: #ff6f61;
+  --primary-dark: #e85a4f;
+  --secondary-color: #6b5b95;
+  --secondary-light: #a29bfe;
+  --accent-color: #feb236;
+  --bg-color: #f0f8ff;
+  --text-color: #333;
+  --header-bg: linear-gradient(135deg, #ff6f61, #feb236);
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  animation: fadeInUp var(--transition-speed) ease-out;
+}
+
+header {
+  background: var(--header-bg);
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav.menu ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav.menu ul li {
+  margin: 0 20px;
+}
+
+nav.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+}
+
+nav.menu ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  left: 0;
+  bottom: -5px;
+  transition: width var(--transition-speed) ease;
+}
+
+nav.menu ul li a:hover::after {
+  width: 100%;
+}
+
+nav.menu ul li a:hover {
+  color: var(--secondary-light);
+}
+
+main {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.message {
+  font-size: 0.9em;
+  color: var(--accent-color);
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 10px;
+}
+.article-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.article-header {
+  border-bottom: 1px solid var(--secondary-light);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.article-title {
+  font-size: 1.6em;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  transition: color var(--transition-speed) ease;
+}
+
+.article-title:hover {
+  color: var(--primary-color);
+}
+
+.article-meta {
+  font-size: 0.9em;
+  color: #777;
+  display: flex;
+  gap: 15px;
+}
+
+.article-content {
+  margin-top: 15px;
+  text-align: justify;
+}
+
+.article-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.article-actions a {
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: color var(--transition-speed) ease;
+}
+
+.article-actions a:hover {
+  color: var(--secondary-color);
+}
+
+.article-actions button {
+  background: var(--accent-color);
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.article-actions button:hover {
+  background: #e07b39;
+  transform: scale(1.05);
+}
+
+form {
+  background: #fff;
+  padding: 25px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="date"],
+form textarea,
+form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  transition: border var(--transition-speed) ease;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="date"]:focus,
+form textarea:focus,
+form input[type="file"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+form button,
+form input[type="submit"] {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.message,
+div[message="message"] {
+  background: #fdecea;
+  color: #b71c1c;
+  border: 1px solid #f5c6cb;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.utilisateur {
+  background: #fff;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 auto 25px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition-speed) ease;
+  max-width: 400px;
+}
+
+.utilisateur:hover {
+  transform: translateY(-3px);
+}
+
+.utilisateur h2 {
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.utilisateur img {
+  border-radius: 50%;
+  margin-bottom: 15px;
+  max-width: 150px;
+  transition: transform var(--transition-speed) ease;
+}
+
+.utilisateur img:hover {
+  transform: scale(1.05);
+}
+
+#moteur-recherche {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#moteur-recherche input[type="text"] {
+  width: 70%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+  transition: border var(--transition-speed) ease;
+}
+
+#moteur-recherche input[type="text"]:focus {
+  border-color: var(--primary-color);
+}
+
+#moteur-recherche button {
+  padding: 12px 20px;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+#moteur-recherche button:hover {
+  background: var(--primary-dark);
+  transform: translateX(3px);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--secondary-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  main {
+    padding: 20px;
+  }
+  .articles-container {
+    gap: 20px;
+  }
+  #moteur-recherche input[type="text"] {
+    width: 65%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  #moteur-recherche input[type="text"] {
+    width: 55%;
+  }
+  nav.menu ul li {
+    margin: 5px 0;
+  }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #ff6f61;
+}
+
+.message {
+  background-color: #fdecea;
+  color: #e85a4f;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 10px;
+}
+
+
+.article-card {
+  background-color: #fff;
+  border: 1px solid #6b5b95;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.article-header {
+  border-bottom: 1px solid #a29bfe;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.article-title {
+  font-size: 1.5em;
+  color: #6b5b95;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.article-title:hover {
+  color: #ff6f61;
+}
+
+.article-meta {
+  font-size: 0.9em;
+  color: #777;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.article-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.article-actions a {
+  text-decoration: none;
+  color: #ff6f61;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.article-actions a:hover {
+  color: #e85a4f;
+}
+
+.article-actions form button {
+  background-color: #feb236;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.article-actions form button:hover {
+  background-color: #e07b39;
+  transform: scale(1.05);
+}

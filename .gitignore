@@ -1,0 +1,21 @@
+# 1) Clé secrète
+.env
+
+# 2) Virtualenv (seuls les dossiers système du venv)
+bin/
+include/
+lib/
+lib64/
+pyvenv.cfg
+
+# 3) Caches Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 4) Réglages d’IDE
+.vscode/
+.idea/
+
+# 5) macOS
+.DS_Store

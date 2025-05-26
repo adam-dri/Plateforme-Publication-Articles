@@ -1,0 +1,29 @@
+{% extends "layout-admin.html" %}
+
+{% block titre %}Créer un article{% endblock %}
+
+{% block body %}
+<h1>Ajouter un article</h1>
+{% if message %}
+    <div message="message">{{ message }}</div>
+{% endif %}
+<form method="POST" class="formulaire-nouveau">
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" id="titre" value="{{ titre|default('') }}" required>
+    <br>
+
+    <label for="identifiant">Identifiant :</label>
+    <input type="text" name="identifiant" id="identifiant" value="{{ identifiant|default('') }}" required>
+    <br>
+
+    <label for="date_publication">Date de publication :</label>
+    <input type="date" name="date_publication" id="date_publication" value="{{ date_publication|default('') }}" required>
+    <br>
+
+    <label for="contenu">Contenu :</label>
+    <textarea name="contenu" id="contenu" rows="10" required>{{ contenu|default('') }}</textarea>
+    <br>
+
+    <button type="submit">Créer l'article</button>
+</form>
+{% endblock %}

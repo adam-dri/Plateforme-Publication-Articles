@@ -1,0 +1,35 @@
+{% extends "layout-admin.html" %}
+
+{% block titre %}Liste-articles{% endblock %}
+
+{% block body %}
+<h1>
+  Liste de tous les articles.
+  {% if message %}
+    <span class="message"> - {{ message }}</span>
+  {% endif %}
+</h1>
+<div class="articles-container">
+    {% for article in articles %}
+    <article class="article-card">
+        <div class="article-header">
+            <a href="{{ url_for('page_article', identifiant=article['identifiant']) }}">
+                <h2 class="article-title">{{ article["titre"] }}</h2>
+            </a>
+            <h2>{{ article["date_publication"] }}</h2>
+            <div class="article-meta">
+                <span class="article-author">{{ article["auteur"] }}</span>
+                <span class="article-date">{{ article["date_publication"] }}</span>
+                <span class="article-id">{{ article["identifiant"] }}</span>
+            </div>
+        </div>
+        <div class="article-actions">
+            <a href="{{ url_for('modifier_article', identifiant=article['identifiant']) }}">Modifier l'article</a>
+            <form action="{{ url_for('supprimer_article', identifiant=article['identifiant']) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cet article ?');">
+                <button type="submit">Supprimer l'article</button>
+            </form>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

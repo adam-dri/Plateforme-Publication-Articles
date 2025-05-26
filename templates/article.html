@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block titre %}{{ article.identifiant }}{% endblock %}
+
+{% block body %}
+  {% if message %}
+    <div class="message">{{ message }}</div>
+  {% endif %}
+
+  <div class="article">
+    {% if auteur and auteur.photo_profil %}
+      <img src="data:image/jpeg;base64,{{ auteur.photo_profil }}" alt="Photo de profil de {{ article.auteur }}" style="max-width:150px;">
+    {% else %}
+      <p>Aucune photo de profil pour {{ article.auteur }}</p>
+    {% endif %}
+
+    <h1>{{ article.titre }}</h1>
+    <h3>{{ article.identifiant }}</h3>
+    <p>Auteur : {{ article.auteur }}</p>
+    <p>Date de publication : {{ article.date_publication }}</p><br>
+    <p>{{ article.contenu }}</p>
+  </div>
+{% endblock %}

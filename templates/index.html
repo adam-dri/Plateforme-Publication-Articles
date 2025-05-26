@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block titre%} Acceuil {% endblock %}
+
+{% block body %}
+    <div id="moteur-recherche">
+        <form action="{{ url_for('rechercher') }}" method="get">
+            <input type="text" name="q" placeholder="Rechercher un article..." required>
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+    <H1>Voici les derniers articles sortis</H1>
+    <div class="articles-container">
+        {% for article in cinq_articles %}
+        <article class="article-card">
+            <div class="article-header">
+                <a href="{{ url_for('page_article', identifiant=article['identifiant']) }}">
+                    <h2 class="article-title">{{ article["titre"] }}</h2>
+                </a>
+                <h2>{{ article["date_publication"] }}</h2>
+                <div class="article-meta">
+                    <span class="article-author">{{ article["auteur"] }}</span>
+                    <span class="article-date">{{ article["date_publication"] }}</span>
+                    <span class="article-id">{{ article["identifiant"] }}</span> <!--href-->
+                </div>
+            </div>
+            <div class="article-content">
+                <p>{{ article["contenu"] }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+{% endblock %}

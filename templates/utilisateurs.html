@@ -1,0 +1,34 @@
+{% extends "layout-admin.html" %}
+
+{% block titre %}Utilisateurs{% endblock %}
+
+{% block body %}
+
+<h1>Liste des utilisateurs</h1>
+
+{% for utilisateur in utilisateurs %}
+    <div class="utilisateur">
+      <h2>{{ utilisateur.username }}</h2>
+      <p><strong>Nom :</strong> {{ utilisateur.nom }}</p>
+      <p><strong>Prénom :</strong> {{ utilisateur.prenom }}</p>
+      <p><strong>État :</strong> {{ utilisateur.etat }}</p>
+      {% if utilisateur.photo_profil %}
+        <img src="data:image/jpeg;base64,{{ utilisateur.photo_profil }}" alt="Photo de profil de {{ utilisateur.username }}" style="max-width:150px;">
+      {% else %}
+        <p>Aucune photo de profil</p>
+      {% endif %}
+
+      <form action="{{ url_for('changer_etat_utilisateur', username=utilisateur.username) }}" method="post">
+        {% if utilisateur.etat == 1 %}
+          <input type="hidden" name="etat" value="0">
+          <button type="submit">Désactiver</button>
+        {% else %}
+          <input type="hidden" name="etat" value="1">
+          <button type="submit">Activer</button>
+        {% endif %}
+      </form>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout-admin.html" %}
+
+{% block titre %}Ajouter un utilisateurs{% endblock %}
+
+{% block body %}
+  <form action="{{ url_for('page_ajout_utilisateur') }}" method="post" enctype="multipart/form-data" class="formulaire-nouveau-utilisateur">
+    <div>
+      <label for="username">Nom d'utilisateur:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" name="nom" required>
+    </div>
+    <div>
+      <label for="prenom">Prénom:</label>
+      <input type="text" id="prenom" name="prenom" required>
+    </div>
+    <div>
+      <label for="photo_profil">Photo de profil:</label>
+      <input type="file" id="photo_profil" name="photo_profil" accept="image/*" required>
+    </div>
+    <div>
+      <button type="submit">Ajouter l'utilisateur:</button>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="/" target="_self">Acceuil</a></li>
+                {% if logged_in %}
+                    <li><a href="/logout" target="_self">Se déconnecter</a></li>
+                    <li><a href="/admin-nouveau" target="_self">Ajouter un article</a></li>
+                    <li><a href="/utilisateurs" target="_self">Liste des utilisateurs</a></li>
+                    <li><a href="/form-utilisateurs" target="_self">Ajouter un utilisateur</a></li>
+                {% else %}
+                    <li><a href="/admin" target="_self">Se connecter</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+</body>
+</html>

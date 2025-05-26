@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block titre%} Connexion {% endblock %}
+
+{% block body %}
+<div class="formulaire-connexion">
+    <form method="POST" action="/admin">
+        <input type="text" name="username" placeholder="Entrez votre nom d'utilisateur"><br>
+        <input type="password" name="password" placeholder="Entrez votre mot de passe"><br>
+        <button type="submit" value="login">Se connecter</button>
+    </form>
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+</div>
+{% endblock %}

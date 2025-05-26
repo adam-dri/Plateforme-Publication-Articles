@@ -1,0 +1,22 @@
+{% extends "layout-admin.html" %}
+
+{% block titre %}Modifier l'article{% endblock %}
+
+{% block body %}
+<h1>Modifier l'article</h1>
+<form method="POST" class="formulaire-modification-article">
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" id="titre" value="{{ article.titre }}" required>
+    <br>
+
+    <label for="identifiant">Identifiant :</label>
+    <input type="text" name="identifiant" id="identifiant" value="{{ article.identifiant }}" required>
+    <br>
+
+    <label for="contenu">Contenu :</label>
+    <textarea name="contenu" id="contenu" rows="10" required>{{ article.contenu }}</textarea>
+    <br>
+
+    <button type="submit">Mettre à jour l'article</button>
+</form>
+{% endblock %}
